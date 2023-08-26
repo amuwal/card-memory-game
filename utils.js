@@ -43,7 +43,7 @@ const cards = [
   },
   {
     id: 8,
-    name: "chopped",
+    name: "chopper",
     frontImage: "logo.png",
     backImage: "chopper.png",
   },
@@ -56,12 +56,11 @@ const shuffleArray = (array) => {
   }
 };
 
-const doubleAndShuffle = (array) => {
+export const doubleAndShuffle = (array) => {
   const n = array.length;
   for (let i = 0; i < n; i++) {
-    const card = { ...array[i] };
-    card.id = array.length + i;
-    array.push(card);
+    const cur = { ...array[i], id: array[i].id + n };
+    array.push(cur);
   }
   shuffleArray(array);
 };
@@ -69,7 +68,7 @@ const doubleAndShuffle = (array) => {
 const getCards = (n) => {
   const nCards = cards.slice(0, n);
   doubleAndShuffle(nCards);
-  console.log(nCards)
+  console.log(nCards);
   return nCards;
 };
 

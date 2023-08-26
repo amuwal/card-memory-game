@@ -18,12 +18,27 @@ export default {
   },
   methods: {
     handleCardClick(card) {
-        console.log("hanldling click in cardgrid")
+      console.log({ ...card });
       if (this.activeCardOne === null) {
         this.activeCardOne = card.id;
         this.activeCardOneName = card.name;
       } else {
-        this.activeCardOne = null;
+        if (this.activeCardOne === card.id) {
+          this.activeCardOne = null;
+          return;
+        }
+
+        this.activeCardTwo = card.id;
+
+        setTimeout(() => {
+          if (card.name === this.activeCardOneName) {
+            this.foundCards.add(card.name);
+          }
+          this.activeCardOne = null;
+          this.activeCardTwo = null;
+          this.activeCardOneName = "";
+          console.log(...this.foundCards)
+        }, 1000);
       }
     },
 
