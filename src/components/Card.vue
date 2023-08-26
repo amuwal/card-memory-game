@@ -17,26 +17,34 @@ export default {
       return this.foundCards.has(this.card.name);
     },
   },
+  methods: {
+    handleCardClick(e) {
+      this.$emit("card-click", this.card);
+    },
+  },
 };
 </script>
 
 <template>
-  <div>Card</div>
-  <div class="card">
-    <div class="card-inner">
-      <div v-if="this.isFound">
+  <div
+    @click="handleCardClick"
+    class="card"
+    :class="isFlipped ? 'flipped' : ''"
+  >
+    <div class="card-content">
+      <div class="card-image" v-if="this.isFound">
         <img src="../../public/images/tick.png" alt="Completed" />
       </div>
-      <div v-if="!this.isFound">
+      <div class="card-content card-front" v-if="!this.isFound">
         <img
-          v-show="!isFlipped"
+          v-if="!isFlipped"
           :src="`../../public/images/${card.frontImage}`"
           :alt="card.frontImage"
         />
       </div>
-      <div v-if="!this.isFound">
+      <div class="card-content card-back" v-if="!this.isFound">
         <img
-          v-show="isFlipped"
+          v-if="isFlipped"
           :src="`../../public/images/${card.backImage}`"
           :alt="card.backImage"
         />
@@ -45,4 +53,47 @@ export default {
   </div>
 </template>
 
-<style></style>
+<style>
+.card {
+  height: 200px;
+  perspective: 1000px;
+  width: 150px;
+  cursor: pointer;
+}
+
+.card.flipped .card-inner{
+    transform: rotateY(180deg);
+}
+
+.card.flipped .card-content  {
+    transform: rotateY(180deg);
+}
+
+.card-inner {
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-out;
+}
+
+.card-content {
+  height: 100%;
+  width: 100%;
+  border: 2px solid white;
+  display: flex;
+  backface-visibility: hidden;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card img {
+  max-height: 90%;
+  max-width: 90%;
+  object-fit: contain;
+}
+</style>

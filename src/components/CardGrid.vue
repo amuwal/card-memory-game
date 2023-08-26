@@ -18,7 +18,13 @@ export default {
   },
   methods: {
     handleCardClick(card) {
-      //Todo
+        console.log("hanldling click in cardgrid")
+      if (this.activeCardOne === null) {
+        this.activeCardOne = card.id;
+        this.activeCardOneName = card.name;
+      } else {
+        this.activeCardOne = null;
+      }
     },
 
     restartGame() {
@@ -29,8 +35,7 @@ export default {
 </script>
 
 <template>
-  <div>
-    CardGrid
+  <div class="cards">
     <Card
       v-for="(card, index) in cards"
       :activeCardTwo="activeCardTwo"
@@ -38,6 +43,19 @@ export default {
       :card="card"
       :foundCards="foundCards"
       :key="index"
+      @card-click="handleCardClick"
     />
   </div>
 </template>
+
+<style>
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 3px solid salmon;
+  border-radius: 10px;
+  padding: 20px;
+  justify-content: center;
+  justify-items: center;
+}
+</style>
