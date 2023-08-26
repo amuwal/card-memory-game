@@ -38,15 +38,15 @@ export default {
       <div class="card-content card-front" v-if="!this.isFound">
         <img
           v-if="!isFlipped"
-          :src="`../../public/images/${card.frontImage}`"
+          :src="`/images/${card.frontImage}`"
           :alt="card.frontImage"
         />
-        <div>{{ this.card.name }}</div>
+        <!-- <div>{{ this.card.name }}</div> -->
       </div>
       <div class="card-content card-back" v-if="!this.isFound">
         <img
           v-if="isFlipped"
-          :src="`../../public/images/${card.backImage}`"
+          :src="`/images/${card.backImage}`"
           :alt="card.backImage"
         />
       </div>

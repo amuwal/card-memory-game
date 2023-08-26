@@ -51,11 +51,21 @@ export default {
       this.activeCardOneName = "";
       this.allMatched = false;
     },
+    changeDifficulty(n) {
+      this.difficulty = n;
+      this.cards = getCards(n);
+    },
   },
 };
 </script>
 
 <template>
+  <div class="settings">
+    <button @click="changeDifficulty(4)">Easy</button>
+    <button @click="changeDifficulty(8)">Medium</button>
+    <button @click="changeDifficulty(12)">Hard</button>
+  </div>
+
   <div v-if="allMatched" class="game-over-message">
     <div>Wow your memory sure is sharp</div>
     <button @click="restartGame">Restart</button>
@@ -97,6 +107,27 @@ export default {
 }
 
 .game-over-message button {
-    padding: 10px 5px;
+  padding: 10px 5px;
+}
+
+.settings {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px;
+}
+
+button {
+  background-color: #35495e; /* Dark blue button background */
+  color: white; /* White button text color */
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #2b3a4d; /* Darker blue on hover */
 }
 </style>

@@ -47,6 +47,30 @@ const cards = [
     frontImage: "logo.png",
     backImage: "chopper.png",
   },
+  {
+    id: 9,
+    name: "nami",
+    frontImage: "logo.png",
+    backImage: "nami.png",
+  },
+  {
+    id: 10,
+    name: "crocodile",
+    frontImage: "logo.png",
+    backImage: "crocodile.png",
+  },
+  {
+    id: 11,
+    name: "smoker",
+    frontImage: "logo.png",
+    backImage: "smoker.png",
+  },
+  {
+    id: 12,
+    name: "akainu",
+    frontImage: "logo.png",
+    backImage: "akainu.png",
+  },
 ];
 
 const shuffleArray = (array) => {
