@@ -11,6 +11,7 @@ export default {
       activeCardOneName: "",
       foundCards: new Set(),
       difficulty: 8,
+      allMatched: false,
     };
   },
   components: {
@@ -18,7 +19,6 @@ export default {
   },
   methods: {
     handleCardClick(card) {
-      console.log({ ...card });
       if (this.activeCardOne === null) {
         this.activeCardOne = card.id;
         this.activeCardOneName = card.name;
@@ -33,24 +33,34 @@ export default {
         setTimeout(() => {
           if (card.name === this.activeCardOneName) {
             this.foundCards.add(card.name);
+            this.allMatched = this.foundCards.size === this.difficulty;
           }
           this.activeCardOne = null;
           this.activeCardTwo = null;
           this.activeCardOneName = "";
-          console.log(...this.foundCards)
+          console.log(...this.foundCards);
         }, 1000);
       }
     },
 
     restartGame() {
-      //Todo
+      this.cards = getCards(this.difficulty);
+      this.foundCards = new Set();
+      this.activeCardOne = null;
+      this.activeCardTwo = null;
+      this.activeCardOneName = "";
+      this.allMatched = false;
     },
   },
 };
 </script>
 
 <template>
-  <div class="cards">
+  <div v-if="allMatched" class="game-over-message">
+    <div>Wow your memory sure is sharp</div>
+    <button @click="restartGame">Restart</button>
+  </div>
+  <div v-else class="cards">
     <Card
       v-for="(card, index) in cards"
       :activeCardTwo="activeCardTwo"
@@ -72,5 +82,21 @@ export default {
   padding: 20px;
   justify-content: center;
   justify-items: center;
+}
+
+.game-over-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #42b883; /* Green background color */
+  padding: 20px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Slight shadow */
+}
+
+.game-over-message button {
+    padding: 10px 5px;
 }
 </style>

@@ -31,8 +31,8 @@ export default {
     class="card"
     :class="isFlipped ? 'flipped' : ''"
   >
-    <div class="card-content">
-      <div class="card-image" v-if="this.isFound">
+    <div class="card-inner">
+      <div class="card-content" v-if="this.isFound">
         <img src="../../public/images/tick.png" alt="Completed" />
       </div>
       <div class="card-content card-front" v-if="!this.isFound">
@@ -41,6 +41,7 @@ export default {
           :src="`../../public/images/${card.frontImage}`"
           :alt="card.frontImage"
         />
+        <div>{{ this.card.name }}</div>
       </div>
       <div class="card-content card-back" v-if="!this.isFound">
         <img
@@ -81,10 +82,10 @@ export default {
   width: 100%;
   border: 2px solid white;
   display: flex;
-  backface-visibility: hidden;
-  position: absolute;
   justify-content: center;
   align-items: center;
+  backface-visibility: hidden;
+  position: absolute;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transform-style: preserve-3d;
