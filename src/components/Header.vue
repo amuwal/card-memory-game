@@ -14,11 +14,9 @@
   justify-content: space-between;
 }
 
-.vertical-heading {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  white-space: nowrap;
-  margin: 0;
+@media (max-width: 800px){
+    .header {
+        font-size: 24px;
+    }
 }
 </style>

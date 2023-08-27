@@ -133,15 +133,23 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #42b883; /* Green background color */
+  background-color: #42b883;
   padding: 20px;
   text-align: center;
   border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Slight shadow */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  height: 40vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+
 }
 
 .game-over-message button {
   padding: 10px 5px;
+  border: 2px solid white;
 }
 
 .settings {
@@ -179,6 +187,7 @@ button:hover {
 @media (max-width: 800px){
     button {
         font-size: 1rem;
+        padding: 5px 10px;
     }
 }
 
@@ -191,6 +200,11 @@ button:hover {
 
     .cards.medium, .cards.hard {
         grid-template-columns: repeat(4, 1fr);
+    }
+
+    button {
+        font-size: 0.8rem;
+        padding: 3px 10px;
     }
 }
 </style>
