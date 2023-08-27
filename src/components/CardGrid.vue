@@ -53,10 +53,13 @@ export default {
     },
     changeDifficulty(n) {
       this.difficulty = n;
+      
+      document.querySelector(".cards").classList.remove("hard");
+      document.querySelector(".cards").classList.remove("medium");
       if (n === 12) {
-        document.querySelector(".cards").classList.add("hard")
-      } else {
-        document.querySelector(".cards").classList.remove("hard")
+        document.querySelector(".cards").classList.add("hard");
+      } else if (n === 8) {
+        document.querySelector(".cards").classList.add("medium");
       }
       this.restartGame();
     },
@@ -107,10 +110,10 @@ export default {
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  width: 700px;
   max-width: 95vw;
-  border: 3px solid salmon;
-  border-radius: 10px;
   padding: 10px;
+  justify-self: center;
   justify-content: center;
   justify-items: center;
   grid-row: 2;
@@ -118,7 +121,11 @@ export default {
 }
 
 .cards.hard {
-    grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.cards.medium {
+  width: 600px;
 }
 
 .game-over-message {
@@ -145,8 +152,8 @@ export default {
 }
 
 button {
-  background-color: #34ca93; /* Dark blue button background */
-  color: white; /* White button text color */
+  background-color: #34ca93;
+  color: white;
   border: none;
   padding: 10px 20px;
   font-size: 1.2rem;
@@ -156,16 +163,15 @@ button {
 }
 
 button:hover {
-  background-color: #27ab88; /* Darker blue on hover */
+  background-color: #27ab88;
 }
 
 .active {
-  background-color: #55dbf6;
-  color: pink;
+  background-color: #7221ff;
+  color: rgb(255, 255, 255);
 }
 
 .active:hover {
-    background-color: #89dff0;
+  background-color: #1215d8;
 }
-
 </style>
