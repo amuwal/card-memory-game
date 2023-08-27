@@ -1,29 +1,21 @@
-# .
+[Go to live app](https://assignment-better-self-today.vercel.app/)
 
-This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
+# Simple flipping card game
+The Memory Game is a simple yet engaging card flipping and matching game created using VueJs. It was created as part of an assignment to demonstrate key web development skills.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+![Home page](./public/images/Home.png)
 
-## Customize configuration
+# Setup Locally
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+1. Clone the repository: `git clone https://github.com/amuwal/assignment-better-self-today`
+2. Navigate to the project directory: `cd assignment-better-self-today`
+3. Install dependencies: `npm i`
+4. Run the project locally: `npm run dev`
+5. Access the application in your browser: [http://localhost:5173](http://localhost:5173)
 
-## Project Setup
+## Features
 
-```sh
-npm install
-```
+ The app currently supports the following features:
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+* Change Levels

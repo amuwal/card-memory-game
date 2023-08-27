@@ -117,7 +117,7 @@ export default {
   justify-content: center;
   justify-items: center;
   grid-row: 2;
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 3;
 }
 
 .cards.hard {
@@ -149,6 +149,7 @@ export default {
   justify-content: flex-end;
   gap: 10px;
   padding: 10px;
+  grid-column: 2 / span 2;
 }
 
 button {
@@ -173,5 +174,23 @@ button:hover {
 
 .active:hover {
   background-color: #1215d8;
+}
+
+@media (max-width: 800px){
+    button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 500px){
+    .cards {
+        padding-top: 20px;
+        width: 90vw;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cards.medium, .cards.hard {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 </style>

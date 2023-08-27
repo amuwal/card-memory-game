@@ -20,6 +20,6 @@ export default {
 .home {
     display: grid;
     grid-template-rows: auto auto;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 </style>
