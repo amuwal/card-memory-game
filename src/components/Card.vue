@@ -56,10 +56,11 @@ export default {
 
 <style>
 .card {
-  height: 200px;
   perspective: 1000px;
   width: 150px;
   cursor: pointer;
+  width: 80%;
+  aspect-ratio: 3/4;
 }
 
 .card.flipped .card-inner{

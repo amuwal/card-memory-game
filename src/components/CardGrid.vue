@@ -53,7 +53,12 @@ export default {
     },
     changeDifficulty(n) {
       this.difficulty = n;
-      this.restartGame()
+      if (n === 12) {
+        document.querySelector(".cards").classList.add("hard")
+      } else {
+        document.querySelector(".cards").classList.remove("hard")
+      }
+      this.restartGame();
     },
   },
 };
@@ -61,9 +66,24 @@ export default {
 
 <template>
   <div class="settings">
-    <button @click="changeDifficulty(4)">Easy</button>
-    <button @click="changeDifficulty(8)">Medium</button>
-    <button @click="changeDifficulty(12)">Hard</button>
+    <button
+      :class="difficulty === 4 ? 'active' : ''"
+      @click="changeDifficulty(4)"
+    >
+      Easy
+    </button>
+    <button
+      :class="difficulty === 8 ? 'active' : ''"
+      @click="changeDifficulty(8)"
+    >
+      Medium
+    </button>
+    <button
+      :class="difficulty === 12 ? 'active' : ''"
+      @click="changeDifficulty(12)"
+    >
+      Hard
+    </button>
   </div>
 
   <div v-if="allMatched" class="game-over-message">
@@ -86,12 +106,17 @@ export default {
 <style>
 .cards {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 95vw;
   border: 3px solid salmon;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
   justify-content: center;
   justify-items: center;
+}
+
+.cards.hard {
+    grid-template-columns: repeat(6, 1fr);
 }
 
 .game-over-message {
@@ -118,16 +143,27 @@ export default {
 }
 
 button {
-  background-color: #35495e; /* Dark blue button background */
+  background-color: #34ca93; /* Dark blue button background */
   color: white; /* White button text color */
   border: none;
   padding: 10px 20px;
   font-size: 1.2rem;
   cursor: pointer;
   border-radius: 5px;
+  text-shadow: 2px 2px rgb(243, 87, 217);
 }
 
 button:hover {
-  background-color: #2b3a4d; /* Darker blue on hover */
+  background-color: #27ab88; /* Darker blue on hover */
 }
+
+.active {
+  background-color: #55dbf6;
+  color: pink;
+}
+
+.active:hover {
+    background-color: #89dff0;
+}
+
 </style>
