@@ -113,6 +113,8 @@ export default {
   padding: 10px;
   justify-content: center;
   justify-items: center;
+  grid-row: 2;
+  grid-column: 1 / span 2;
 }
 
 .cards.hard {

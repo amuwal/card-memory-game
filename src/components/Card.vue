@@ -57,7 +57,6 @@ export default {
 <style>
 .card {
   perspective: 1000px;
-  width: 150px;
   cursor: pointer;
   width: 80%;
   aspect-ratio: 3/4;

@@ -10,8 +10,16 @@ export default {
 </script>
 
 <template>
-    <div>
+    <div class="home">
         <Header />
         <CardGrid />
     </div>
 </template>
+
+<style>
+.home {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: repeat(2, 1fr);
+}
+</style>
