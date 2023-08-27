@@ -5,12 +5,12 @@ import { getCards } from "../../utils";
 export default {
   data() {
     return {
-      cards: getCards(8),
+      cards: getCards(4),
       activeCardOne: null,
       activeCardTwo: null,
       activeCardOneName: "",
       foundCards: new Set(),
-      difficulty: 8,
+      difficulty: 4,
       allMatched: false,
     };
   },
@@ -53,7 +53,7 @@ export default {
     },
     changeDifficulty(n) {
       this.difficulty = n;
-      
+
       document.querySelector(".cards").classList.remove("hard");
       document.querySelector(".cards").classList.remove("medium");
       if (n === 12) {

@@ -41,7 +41,6 @@ export default {
           :src="`/images/${card.frontImage}`"
           :alt="card.frontImage"
         />
-        <!-- <div>{{ this.card.name }}</div> -->
       </div>
       <div class="card-content card-back" v-if="!this.isFound">
         <img

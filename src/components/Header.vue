@@ -10,6 +10,8 @@
   font-family: "Pacifico", sans-serif;
   font-size: 30px;
   text-shadow: 2px 2px rgb(255, 0, 242);
+  display: flex;
+  justify-content: space-between;
 }
 
 .vertical-heading {
