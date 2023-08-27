@@ -1,15 +1,17 @@
 <script>
 import CardGrid from '../components/CardGrid.vue';
+import Header from '../components/Header.vue';
 export default {
     components: {
-        CardGrid
+        CardGrid,
+        Header
     }
 }
 </script>
 
 <template>
     <div>
+        <Header />
         <CardGrid />
-        <!-- Home -->
     </div>
 </template>

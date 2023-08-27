@@ -53,7 +53,7 @@ export default {
     },
     changeDifficulty(n) {
       this.difficulty = n;
-      this.cards = getCards(n);
+      this.restartGame()
     },
   },
 };
@@ -86,7 +86,7 @@ export default {
 <style>
 .cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   border: 3px solid salmon;
   border-radius: 10px;
   padding: 20px;
