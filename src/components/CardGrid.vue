@@ -31,7 +31,10 @@ export default {
         this.activeCardTwo = card.id;
 
         setTimeout(() => {
-          if (card.name === this.activeCardOneName) {
+          if (
+            card.name === this.activeCardOneName &&
+            card.id !== this.activeCardOne
+          ) {
             this.foundCards.add(card.name);
             this.allMatched = this.foundCards.size === this.difficulty;
           }
@@ -39,7 +42,7 @@ export default {
           this.activeCardTwo = null;
           this.activeCardOneName = "";
           console.log(...this.foundCards);
-        }, 1000);
+        }, 700);
       }
     },
 
@@ -144,7 +147,6 @@ export default {
   flex-direction: column;
   gap: 30px;
   justify-content: center;
-
 }
 
 .game-over-message button {
@@ -184,27 +186,28 @@ button:hover {
   background-color: #1215d8;
 }
 
-@media (max-width: 800px){
-    button {
-        font-size: 1rem;
-        padding: 5px 10px;
-    }
+@media (max-width: 800px) {
+  button {
+    font-size: 1rem;
+    padding: 5px 10px;
+  }
 }
 
-@media (max-width: 500px){
-    .cards {
-        padding-top: 20px;
-        width: 90vw;
-        grid-template-columns: 1fr 1fr;
-    }
+@media (max-width: 500px) {
+  .cards {
+    padding-top: 20px;
+    width: 90vw;
+    grid-template-columns: 1fr 1fr;
+  }
 
-    .cards.medium, .cards.hard {
-        grid-template-columns: repeat(4, 1fr);
-    }
+  .cards.medium,
+  .cards.hard {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-    button {
-        font-size: 0.8rem;
-        padding: 3px 10px;
-    }
+  button {
+    font-size: 0.8rem;
+    padding: 3px 10px;
+  }
 }
 </style>

@@ -81,15 +81,17 @@ const shuffleArray = (array) => {
 };
 
 export const doubleAndShuffle = (array) => {
+  const base = 100;
   const n = array.length;
   for (let i = 0; i < n; i++) {
-    const cur = { ...array[i], id: array[i].id + n };
+    const cur = { ...array[i], id: i + base };
     array.push(cur);
   }
   shuffleArray(array);
 };
 
 const getCards = (n) => {
+  shuffleArray(cards);
   const nCards = cards.slice(0, n);
   doubleAndShuffle(nCards);
   console.log(nCards);

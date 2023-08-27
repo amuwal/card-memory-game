@@ -1,4 +1,4 @@
-[Go to live app](https://assignment-better-self-today.vercel.app/)
+[Go to live app](https://assignment-better-self-today.vercel.app/) (The app utilizes free hosting so please be patient with image loading)
 
 
 # Simple flipping card game
